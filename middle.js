@@ -18,5 +18,19 @@ const assertArraysEqual = (array1, array2) => {
   }
 };
 
-assertArraysEqual([1, 3, 5], [1, 3, 4]);
-assertArraysEqual([1, 3, 5], [1, 3, 5]);
+const middle = (array) => {
+  let newArray = [];
+  if (array.length <= 1) {
+    newArray = [];
+  } else if (array.length % 2 === 0) {
+    newArray.push(array[array.length / 2 - 1]);
+    newArray.push(array[array.length / 2]);
+  } else {
+    newArray.push(array[(array.length - 1) / 2]);
+  }
+  return newArray;
+};
+
+assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4, 5]);
