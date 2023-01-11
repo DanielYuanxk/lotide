@@ -1,4 +1,4 @@
-const assertArraysEqual = (array1, array2) => {
+const eqArrays = (array1, array2) => {
   let isGood = true;
   if (array1.length != array2.length) {
     isGood = false;
@@ -8,12 +8,15 @@ const assertArraysEqual = (array1, array2) => {
       isGood = false;
     }
   }
-  if (isGood) {
+  return isGood;
+};
+const assertArraysEqual = (array1, array2) => {
+  if (eqArrays(array1, array2) === true) {
     console.log("Your Arrays are Equal!");
   } else {
     console.log("Your Arrays are not the same.");
   }
 };
 
-assettArraysEqual([1, 3, 5], [1, 3, 4]);
-assettArraysEqual([1, 3, 5], [1, 3, 5]);
+assertArraysEqual([1, 3, 5], [1, 3, 4]);
+assertArraysEqual([1, 3, 5], [1, 3, 5]);
