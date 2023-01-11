@@ -10,14 +10,16 @@ const countLetters = function (string) {
   let letterCounter = {};
   let stringLowerCase = string.toLowerCase();
   for (letter of stringLowerCase) {
-    if (!letterCounter[letter]) {
-      letterCounter[letter] = 1;
-    }
+    if (letter !== " ") {
+      if (!letterCounter[letter]) {
+        letterCounter[letter] = 1;
+      }
 
-    letterCounter[letter] += 1;
+      letterCounter[letter] += 1;
+    }
   }
 
   return letterCounter;
 };
 
-console.log(countLetters("DanielYuan"));
+console.log(countLetters("Daniel Yuan"));
